@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fanxl.dynamic.dao.UserDao">
+
+    <!--查询用户-->
+    <select id="getByUsername" parameterType="String" resultType="User">
+        select username from f_user where username=#{username};
+    </select>
+
+    <!--创建用户-->
+    <insert id="createUser" parameterType="User">
+        insert into f_user(username)
+        values (#{username});
+    </insert>
+
+</mapper>

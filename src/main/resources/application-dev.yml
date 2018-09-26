@@ -1,0 +1,10 @@
+server:
+  port: 8082
+spring:
+  datasource:
+    name: hiSport
+    url: jdbc:mysql://127.0.0.1:3306/fan_main?useUnicode=true&allowMultiQueries=true&useSSL=false
+    username: root
+    password: fxl421125
+    type: com.fanxl.dynamic.datasource.RoutingDataSource
+    driver-class-name: com.mysql.jdbc.Driver
