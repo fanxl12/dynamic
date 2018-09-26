@@ -10,5 +10,5 @@
 
 [RoutingDataSource](https://github.com/fanxl12/dynamic/blob/master/src/main/java/com/fanxl/dynamic/datasource/RoutingDataSource.java)
 
-[文件说明](https://blog.csdn.net/fanxl10/article/details/82855439)
+[文章说明](https://blog.csdn.net/fanxl10/article/details/82855439)
 
