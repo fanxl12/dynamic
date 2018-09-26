@@ -30,7 +30,7 @@ public class RoutingDataSource extends AbstractRoutingDataSource {
         createAndSaveDataSource(RoutingDataSourceContext.getMainKey());
 
         log.info("创建jdbcTemplate");
-        DruidDataSource dataSource = RoutingDataSource.getDruidDataSource("fan_main");
+        DruidDataSource dataSource = getDruidDataSource("fan_main");
         jdbcTemplate = new JdbcTemplate();
         jdbcTemplate.setDataSource(dataSource);
     }
@@ -52,7 +52,7 @@ public class RoutingDataSource extends AbstractRoutingDataSource {
         return currentAccountSuit;
     }
 
-    private void createAndSaveDataSource(String currentAccountSuit) {
+    private synchronized void createAndSaveDataSource(String currentAccountSuit) {
         DruidDataSource dataSource = createDataSource(currentAccountSuit);
         log.info("{}数据源创建成功", currentAccountSuit);
         dataSources.put(currentAccountSuit, dataSource);
@@ -65,7 +65,7 @@ public class RoutingDataSource extends AbstractRoutingDataSource {
      * @param currentAccountSuit
      * @return
      */
-    private synchronized DruidDataSource createDataSource(String currentAccountSuit) {
+    private DruidDataSource createDataSource(String currentAccountSuit) {
         FanDataSource fanDataSource;
         if (currentAccountSuit.equalsIgnoreCase("fan_main")) {
             fanDataSource = new FanDataSource();
